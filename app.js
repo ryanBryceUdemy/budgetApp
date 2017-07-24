@@ -1,4 +1,5 @@
 //BUDGET CONTROLLER
+
 var budgetController = (function () {
 
   var Expense = function (id, description, value) {
@@ -50,6 +51,7 @@ var budgetController = (function () {
 })();
 
 //UI CONTROLLER
+
 var UIController = (function () {
   var DOMStrings = {
     inputType: '.add__type',
@@ -89,7 +91,15 @@ var UIController = (function () {
 
     },
     clearFields: function () {
-
+      var fields, fieldsArr;
+      //grabbing the DOM elements we want to clear
+      fields = document.querySelectorAll(DOMStrings.inputDescription + ', ' + DOMStrings.inputValue);
+      //little hack to make fields and array and change its proto chain
+      fieldsArr = Array.prototype.slice.call(fields);
+      //loop over array and set value to empty.
+      fieldsArr.forEach(function (current) {
+        current.value = "";
+      });
     },
     getDOMStrings: function () {
       return DOMStrings;
@@ -119,6 +129,8 @@ var controller = (function (budgetCtrl, UICtrl) {
     newItem = budgetCtrl.addItem(input.type, input.description, input.value);
     //3. Add the item to the UI
     UICtrl.addListItem(newItem, input.type);
+    //clear the fields
+      UICtrl.clearFields();
     //4. Calculate budget
 
     //5, Display the budget on the UI
