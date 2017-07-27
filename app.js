@@ -201,7 +201,7 @@ var UIController = (function () {
       obj.budget > 0 ? type = 'inc' : type = 'exp';
       document.querySelector(DOMStrings.budgetLabel).textContent = formatNumber(obj.budget, type);
       document.querySelector(DOMStrings.incomeLabel).textContent = formatNumber(obj.totalInc, 'inc');
-      document.querySelector(DOMStrings.expensesLabel).textContent = formatNumber(obj.totalInc, 'exp');
+      document.querySelector(DOMStrings.expensesLabel).textContent = formatNumber(obj.totalExp, 'exp');
       if (obj.percentage > 0) {
         document.querySelector(DOMStrings.percentageLabel).textContent = obj.percentage + '%';
       }else {

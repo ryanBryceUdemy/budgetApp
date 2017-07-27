@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "staging": "budgetapp-84c02",
+    "production": "budgetapp-84c02"
+  }
+}
